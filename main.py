@@ -5,6 +5,17 @@ allNewUsers =[
     ['mohammad','12','computer science','cairo'],#i
     ['ali','12','computer science','cairo'],#i
 ]
+# test1 = {"name":'ahmad',"age":20}
+def addUser():
+        print('you want to add new user')
+        username= input('please inter your username :')
+        age = int(input('please inter your age :'))
+        major = input('please inter your major :')
+        city = input('please inter your city :')
+        createduser= [username,age,major,city]
+        print(createduser)
+        allUsers.append(createduser)
+        return createduser
 while True:
     print("""
           Welcome to Python
@@ -19,15 +30,9 @@ while True:
     choice = int(input('Enter your choice:'))
     print('you choice is :', choice)
     if choice == 1:
-        print('you want to add new user')
-        username= input('please inter your username :')
-        age = int(input('please inter your age :'))
-        major = input('please inter your major :')
-        city = input('please inter your city :')
-        createduser= [username,age,major,city]
+        addUser()
 
-        print(createduser)
-        allUsers.append(createduser)
+
     elif choice == 2:
         print('you want to delete user')
         userToDelete = input ('inter the username')
@@ -62,6 +67,7 @@ while True:
     elif choice == 6:
         print('you want to exit')
         break
+
 #  task > conver the created user list to dictionary
 # example : createduserAslist = ['ahmad','12','computer science','cairo']
 # createdUserasDictionary = {'username':'ahmad','age':'12','major':'computer science','city':'cairo'}
