@@ -12,10 +12,51 @@ def addUser():
         age = int(input('please inter your age :'))
         major = input('please inter your major :')
         city = input('please inter your city :')
-        createduser= [username,age,major,city]
+        createduser= {
+            "username":username,
+            "age":age,
+            "major":major,
+            "city":city
+        }
         print(createduser)
         allUsers.append(createduser)
         return createduser
+def deletUser():
+        print('you want to delete user')
+        userToDelete = input ('inter the username')
+        for i in allUsers:
+            if i['username']== userToDelete:
+                allUsers.remove(i) # value or index
+                print("user deleted")
+def showCurrentUser():
+        print('you want to show speacific user')
+        userToShow = input('inter the username')
+        isExisted=False
+        for i in allUsers:
+            if i['username'] == userToShow:
+                print(i)
+                isExisted=True
+        if isExisted ==False:
+            print('no user found ')
+def updateUser():
+        print('update')
+        founded=False
+        userToUpdate = input('please inter your username to update :')
+
+        for i in allUsers:
+            if i['username']== userToUpdate:
+                newUsername = input('please inter your new username :')
+                i['username']= newUsername
+                newAge = int(input('please inter your new age :'))
+                i['age']= newAge
+                newMajor = input('please inter your new major :')
+                i['major']= newMajor
+                newCity = input('please inter your new city :')
+                i['city']= newCity
+                founded=True
+        if founded ==False:
+            print(('no user founded'))
+
 while True:
     print("""
           Welcome to Python
@@ -34,36 +75,15 @@ while True:
 
 
     elif choice == 2:
-        print('you want to delete user')
-        userToDelete = input ('inter the username')
-        for i in allUsers:
-            if i[0]== userToDelete:
-                allUsers.remove(i) # value or index
-                print("user deleted")
+        deletUser()
     elif choice == 3:
         print('you want to show all users')
         print(allUsers)
     elif choice == 4:
-        print('you want to show speacific user')
+
+        showCurrentUser()
     elif choice == 5:
-        print('update')
-        founded=False
-        userToUpdate = input('please inter your username to update :')
-
-        for i in allUsers:
-            if i[0]== userToUpdate:
-                newUsername = input('please inter your new username :')
-                i[0]= newUsername
-                newAge = int(input('please inter your new age :'))
-                i[1]= newAge
-                newMajor = input('please inter your new major :')
-                i[2]= newMajor
-                newCity = input('please inter your new city :')
-                i[3]= newCity
-                founded=True
-        if founded ==False:
-            print(('no user founded'))
-
+       updateUser()
     elif choice == 6:
         print('you want to exit')
         break
@@ -73,3 +93,17 @@ while True:
 # createdUserasDictionary = {'username':'ahmad','age':'12','major':'computer science','city':'cairo'}
 # update all the logic to handel the delete,update ,show all users,show speacific user
 # as dictionary
+
+
+# task 11/5 :
+# add new field called skills :>
+# ask the user to inter the skills number
+# initer the skills
+# [skill1,skill2]
+# user={
+    # "username": "ahmad",
+    # "age":26,
+    #  "major": 'IT",
+    #  "city": "irbid",
+    #  "skills": [skill1,skill2]
+# }
